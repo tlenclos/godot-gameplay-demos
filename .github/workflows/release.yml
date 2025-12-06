@@ -53,6 +53,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html5
-          ITCH_GAME: une-journee-a-la-plage
+          ITCH_GAME: godot-gameplay-demos
           ITCH_USER: tlenclos
           PACKAGE: web-build
