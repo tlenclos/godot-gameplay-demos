@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://tyjwyvs4aiso"]
+
+[ext_resource type="PackedScene" uid="uid://cttftg2hh08r2" path="res://survivor/assets/Gem Pink.glb" id="1_mcru5"]
+[ext_resource type="Script" uid="uid://bh8o7vgc6fsbo" path="res://survivor/scenes/xp.gd" id="1_stfyn"]
+
+[node name="Xp" type="Node3D"]
+script = ExtResource("1_stfyn")
+
+[node name="Gem" parent="." instance=ExtResource("1_mcru5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036, 0.375, -0.088)

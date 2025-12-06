@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkouem2ga3ut5"]
+
+[ext_resource type="Script" uid="uid://dwmknbvyk4eo4" path="res://survivor/scripts/player.gd" id="1_ehoge"]
+[ext_resource type="PackedScene" uid="uid://5bnnfx6nlcsr" path="res://survivor/scenes/weapon.tscn" id="2_0gcpx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_player"]
+radius = 0.4
+height = 1.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_player"]
+albedo_color = Color(0.8, 0.3, 0.2, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ehoge"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.4
+height = 1.6
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_ehoge")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_player")
+surface_material_override/0 = SubResource("StandardMaterial3D_player")
+
+[node name="Eye1" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.19385904, 0.4109825, 0.28395146)
+mesh = SubResource("SphereMesh_ehoge")
+
+[node name="Eye2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.19271606, 0.4109825, 0.2839515)
+mesh = SubResource("SphereMesh_ehoge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="Weapon" parent="." instance=ExtResource("2_0gcpx")]
+damage = 30.0
+velocity = 10.0

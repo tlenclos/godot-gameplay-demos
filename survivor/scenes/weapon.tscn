@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5bnnfx6nlcsr"]
+
+[ext_resource type="Script" uid="uid://c6puxutb0u5ea" path="res://survivor/scripts/weapon.gd" id="1_weapon"]
+
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_weapon")
+

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://kl2foth53dt3"]
+
+[ext_resource type="Script" uid="uid://1d41d0fsgkns" path="res://survivor/scripts/ennemy.gd" id="1_ennemy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_body"]
+size = Vector3(0.7, 1, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_body"]
+albedo_color = Color(0.4, 0.15, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_spike"]
+size = Vector3(0.3, 0.4, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_collision"]
+size = Vector3(0.7, 1, 0.7)
+
+[node name="Ennemy" type="CharacterBody3D"]
+script = ExtResource("1_ennemy")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_body")
+
+[node name="Spike1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.35, 1.1, 0.35)
+mesh = SubResource("BoxMesh_spike")
+surface_material_override/0 = SubResource("StandardMaterial3D_body")
+
+[node name="Spike2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.35, 1.1, 0.35)
+mesh = SubResource("BoxMesh_spike")
+surface_material_override/0 = SubResource("StandardMaterial3D_body")
+
+[node name="Spike3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.35, 1.1, -0.35)
+mesh = SubResource("BoxMesh_spike")
+surface_material_override/0 = SubResource("StandardMaterial3D_body")
+
+[node name="Spike4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.35, 1.1, -0.35)
+mesh = SubResource("BoxMesh_spike")
+surface_material_override/0 = SubResource("StandardMaterial3D_body")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_collision")

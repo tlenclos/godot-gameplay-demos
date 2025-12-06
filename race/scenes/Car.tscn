@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk52u4rv01fjj"]
+
+[ext_resource type="Script" uid="uid://dc012miuenikb" path="res://scenes/car.gd" id="1_7u4s5"]
+[ext_resource type="ArrayMesh" uid="uid://bqrwin8ccgptt" path="res://meshes/wheel.res" id="2_ys5ts"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ys5ts"]
+friction = 0.1
+rough = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7u4s5"]
+points = PackedVector3Array(-0.2025, -0.225, -0.4025, 0.2025, -0.225, -0.4025, -0.2025, -0.225, 0.4025, -0.2025, 0.225, -0.4025, 0.2025, 0.225, -0.4025, 0.2025, -0.225, 0.4025, -0.2025, 0.225, 0.4025, 0.2025, 0.225, 0.4025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u4s5"]
+albedo_color = Color(0.98720866, 0.4872039, 0.9999998, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ys5ts"]
+material = SubResource("StandardMaterial3D_7u4s5")
+size = Vector3(0.405, 0.45, 0.805)
+
+[node name="Car" type="Node3D"]
+
+[node name="Body" type="VehicleBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ys5ts")
+script = ExtResource("1_7u4s5")
+
+[node name="Wheel1" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264086, 0.24345362, 0.34389752)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.25
+
+[node name="Wheel" type="MeshInstance3D" parent="Body/Wheel1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020380259, 0.003569603, -0.0010074675)
+mesh = ExtResource("2_ys5ts")
+skeleton = NodePath("../..")
+
+[node name="Wheel2" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30777377, 0.24345362, 0.34389752)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.25
+
+[node name="Wheel" type="MeshInstance3D" parent="Body/Wheel2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020380259, 0.003569603, -0.0010074675)
+mesh = ExtResource("2_ys5ts")
+skeleton = NodePath("../..")
+
+[node name="Wheel3" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264086, 0.24345362, -0.37098235)
+wheel_roll_influence = 0.5
+wheel_radius = 0.25
+
+[node name="Wheel" type="MeshInstance3D" parent="Body/Wheel3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020380259, 0.003569603, -0.0010074675)
+mesh = ExtResource("2_ys5ts")
+skeleton = NodePath("../..")
+
+[node name="Wheel4" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30777377, 0.24345362, -0.37098235)
+wheel_roll_influence = 0.5
+wheel_radius = 0.25
+
+[node name="Wheel" type="MeshInstance3D" parent="Body/Wheel4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020380259, 0.003569603, -0.0010074675)
+mesh = ExtResource("2_ys5ts")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2345604, 0)
+shape = SubResource("ConvexPolygonShape3D_7u4s5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31270793, 0)
+mesh = SubResource("BoxMesh_ys5ts")
+
+[node name="Camera3D" type="Camera3D" parent="Body"]
+transform = Transform3D(-1, 4.1200046e-08, -7.710576e-08, 0, 0.8819871, 0.4712736, 8.742278e-08, 0.4712736, -0.8819871, 0, 0.88340265, -0.7771705)

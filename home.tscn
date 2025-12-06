@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://croh4yqo43xd7"]
+
+[ext_resource type="Script" uid="uid://b5fkb01pvp6vl" path="res://home.gd" id="1_tt30a"]
+[ext_resource type="Texture2D" uid="uid://o7fbf7knsynb" path="res://race.jpg" id="2_1ey7h"]
+[ext_resource type="Theme" uid="uid://udlxeropetpk" path="res://theme.tres" id="2_2ayvv"]
+[ext_resource type="Texture2D" uid="uid://ddb3ui7jdsrj3" path="res://survivor.jpg" id="3_o1ld7"]
+
+[sub_resource type="FontVariation" id="FontVariation_j0o1r"]
+variation_embolden = 1.0
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+spacing_glyph = -1
+spacing_space = 4
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -508.0
+offset_top = -298.0
+offset_right = 516.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tt30a")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -304.0
+offset_top = 19.0
+offset_right = 308.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.494118, 0.858824, 0.960784, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.25098, 1, 0.12549)
+theme_override_colors/font_outline_color = Color(0.105882, 0.278431, 0.47451, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 38
+theme_override_constants/shadow_outline_size = 38
+theme_override_fonts/font = SubResource("FontVariation_j0o1r")
+theme_override_font_sizes/font_size = 64
+text = "Godot game demos"
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -100.0
+offset_right = 520.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Race" type="Button" parent="FlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_2ayvv")
+text = "Race
+(WIP)"
+icon = ExtResource("2_1ey7h")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Survivor" type="Button" parent="FlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_2ayvv")
+text = "Survivor 
+(WIP)"
+icon = ExtResource("3_o1ld7")
+icon_alignment = 1
+expand_icon = true
+
+[node name="FPS" type="Button" parent="FlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_2ayvv")
+text = "FPS
+(planned)"
+
+[node name="Farming" type="Button" parent="FlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_2ayvv")
+text = "Farming
+(planned)"
+
+[node name="City builder" type="Button" parent="FlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("2_2ayvv")
+text = "City builder
+(planned)"
+
+[connection signal="pressed" from="FlowContainer/Race" to="." method="_on_race_pressed"]
+[connection signal="pressed" from="FlowContainer/Survivor" to="." method="_on_rogue_like_pressed"]
