@@ -15,7 +15,7 @@ func _ready() -> void:
 	magnet_player = true
 
 func _process(delta: float) -> void:
-	if not player or not magnet_player:
+	if not player or not is_instance_valid(player) or not magnet_player:
 		return
 	
 	var direction = player.global_position - global_position
