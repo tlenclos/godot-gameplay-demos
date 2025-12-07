@@ -24,10 +24,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		_upside_down_time = 0.0
 	
-	_steer_target = Input.get_axis(&"ui_right", &"ui_left")
+	_steer_target = Input.get_axis(&"right", &"left")
 	_steer_target *= STEER_LIMIT
 	
-	if Input.is_action_pressed(&"ui_up"):
+	if Input.is_action_pressed(&"up"):
 		# Increase engine force at low speeds to make the initial acceleration faster.
 		var speed := linear_velocity.length()
 		if speed < 5.0 and not is_zero_approx(speed):
@@ -37,14 +37,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		engine_force = 0.0
 		
-	if Input.is_action_pressed(&"ui_down"):
+	if Input.is_action_pressed(&"down"):
 		var speed := linear_velocity.length()
 		if speed < 5.0 and not is_zero_approx(speed):
 			engine_force = -clampf(engine_force_value * BRAKE_STRENGTH * 5.0 / speed, 0.0, 100.0)
 		else:
 			engine_force = -engine_force_value * BRAKE_STRENGTH
 
-		engine_force *= Input.get_action_strength(&"ui_down")
+		engine_force *= Input.get_action_strength(&"down")
 
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 
