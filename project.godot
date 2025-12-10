@@ -8,12 +8,24 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="gameplay-tests"
 run/main_scene="uid://croh4yqo43xd7"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://fps/": "blue",
+"res://race/": "purple",
+"res://survivor/": "pink"
+}
 
 [input]
 

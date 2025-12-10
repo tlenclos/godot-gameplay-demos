@@ -21,3 +21,7 @@ func _on_rogue_like_pressed() -> void:
 
 func _on_race_pressed() -> void:
 	_load_scene(preload("res://race/race.tscn"))
+
+
+func _on_fps_pressed() -> void:
+	_load_scene(preload("res://fps/fps.tscn"))

@@ -1,21 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7y57844awtqt"]
+[gd_scene load_steps=8 format=3 uid="uid://c7y57844awtqt"]
 
+[ext_resource type="PackedScene" uid="uid://qev5rtyo6hr4" path="res://common/world.tscn" id="1_lip1t"]
 [ext_resource type="PackedScene" uid="uid://dk52u4rv01fjj" path="res://race/scenes/Car.tscn" id="1_lorhl"]
-[ext_resource type="PackedScene" uid="uid://4a6yfs43aao5" path="res://common/floor.tscn" id="2_lorhl"]
 [ext_resource type="Script" uid="uid://bjw8jmku5rp7w" path="res://race/ui.gd" id="3_ddpug"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
-
-[sub_resource type="Sky" id="Sky_0xm2m"]
-sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
-
-[sub_resource type="Environment" id="Environment_h2yge"]
-background_mode = 2
-sky = SubResource("Sky_0xm2m")
-tonemap_mode = 2
-tonemap_white = 6.0
-fog_enabled = true
-fog_sky_affect = 0.022
 
 [sub_resource type="PrismMesh" id="PrismMesh_0xm2m"]
 left_to_right = 2.0
@@ -32,19 +19,9 @@ size = Vector3(1, 1, 5)
 
 [node name="Main" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h2yge")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
-light_energy = 1.4
-light_angular_distance = 15.0
-
 [node name="Car" parent="." instance=ExtResource("1_lorhl")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="Floor" parent="." instance=ExtResource("2_lorhl")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.004206187, 0, -0.9999912, 0, 1, 0, 0.9999912, 0, -0.004206187, -0.0047774315, 0.4597153, 4.391107)
@@ -107,6 +84,8 @@ mesh = SubResource("BoxMesh_ddpug")
 [node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.50556266, 10.292461)
 mesh = SubResource("BoxMesh_ddpug")
+
+[node name="World" parent="." instance=ExtResource("1_lip1t")]
 
 [connection signal="value_changed" from="UI/cameraX" to="UI" method="_on_camera_x_value_changed"]
 [connection signal="value_changed" from="UI/cameraY" to="UI" method="_on_camera_y_value_changed"]

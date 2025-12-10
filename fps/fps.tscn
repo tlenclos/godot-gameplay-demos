@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://dmj1tdcsqodfh"]
+
+[ext_resource type="PackedScene" uid="uid://qev5rtyo6hr4" path="res://common/world.tscn" id="1_3hpux"]
+[ext_resource type="Script" uid="uid://ck7a6xhwx2qs1" path="res://fps/player.gd" id="2_er6c3"]
+[ext_resource type="PackedScene" uid="uid://d26i5i51aic56" path="res://fps/scenes/gun.tscn" id="3_6ppju"]
+[ext_resource type="PackedScene" uid="uid://bsaudfcejbuk3" path="res://fps/scenes/target.tscn" id="3_qqwbl"]
+[ext_resource type="Script" uid="uid://bqwgpyaq3t7wc" path="res://fps/controls.gd" id="4_oht2h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3hpux"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_er6c3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_er6c3"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ppju"]
+albedo_color = Color(0.8640794, 0.8006797, 0.28060263, 1)
+metallic = 0.7
+metallic_specular = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hslgj"]
+lifetime_randomness = 0.2
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_min = 0.03
+scale_max = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_7045e"]
+
+[node name="Fps" type="Node3D" unique_id=189080782]
+metadata/_edit_vertical_guides_ = [575.0]
+metadata/_edit_horizontal_guides_ = [324.0]
+
+[node name="World" parent="." unique_id=1368854052 instance=ExtResource("1_3hpux")]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1475050626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0651408, 0)
+script = ExtResource("2_er6c3")
+
+[node name="Head" type="Node3D" parent="Player" unique_id=950142224]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=646247858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55039775, -0.13057768)
+
+[node name="Gun" parent="Player/Head/Camera3D" unique_id=342928217 instance=ExtResource("3_6ppju")]
+transform = Transform3D(1.2905906, 0, 0, 0, 1.0909235, 0, 0, 0, 1.3591077, 0.2997723, -0.19583428, -0.44945383)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1330147655]
+mesh = SubResource("CapsuleMesh_3hpux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=726954599]
+shape = SubResource("CapsuleShape3D_er6c3")
+
+[node name="Map" type="Node3D" parent="." unique_id=270717332]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Map" unique_id=527383651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05675137, 0.5, -6.065199)
+use_collision = true
+
+[node name="Jump1" type="CSGMesh3D" parent="Map/CSGCombiner3D" unique_id=309894604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7632313)
+mesh = SubResource("BoxMesh_er6c3")
+
+[node name="Jump2" type="CSGMesh3D" parent="Map/CSGCombiner3D" unique_id=1043363496]
+transform = Transform3D(1, 0, 0, 0, 2.1099918, 0, 0, 0, 1, 0, 0.6, -1.2037373)
+mesh = SubResource("BoxMesh_er6c3")
+
+[node name="targetWall" type="CSGMesh3D" parent="Map/CSGCombiner3D" unique_id=2013130828]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 6.05, -18.282925, 0, 0)
+mesh = SubResource("BoxMesh_er6c3")
+
+[node name="Targets" type="Node3D" parent="." unique_id=1816989531]
+
+[node name="target" parent="Targets" unique_id=934450434 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -2.3)
+
+[node name="target2" parent="Targets" unique_id=2130696596 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -3.4)
+
+[node name="target3" parent="Targets" unique_id=1309677994 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -4.498419)
+
+[node name="target4" parent="Targets" unique_id=1148933320 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -5.5984187)
+
+[node name="target5" parent="Targets" unique_id=655890448 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -6.7000003)
+
+[node name="target6" parent="Targets" unique_id=1472504067 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -7.8000007)
+
+[node name="target7" parent="Targets" unique_id=1934375593 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -8.898418)
+
+[node name="target8" parent="Targets" unique_id=1523007818 instance=ExtResource("3_qqwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19736, 1.5, -9.998419)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1022913087]
+script = ExtResource("4_oht2h")
+
+[node name="CrossHair" type="Control" parent="HUD" unique_id=1220879974]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0028204443
+
+[node name="Line2D" type="Line2D" parent="HUD/CrossHair" unique_id=1506299378]
+position = Vector2(18.964027, 10.054565)
+rotation = 0.0026141638
+points = PackedVector2Array(0, 0, 0, 20)
+width = 5.0
+default_color = Color(0, 0, 0, 0.49019608)
+
+[node name="Line2D2" type="Line2D" parent="HUD/CrossHair" unique_id=616755023]
+position = Vector2(28.964025, 20.054565)
+rotation = 1.5777453
+points = PackedVector2Array(0, 0, 0, 20)
+width = 5.0
+default_color = Color(0, 0, 0, 0.49019608)
+
+[node name="TargetName" type="Label" parent="HUD" unique_id=1517307849]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ControlsPanel" type="Control" parent="HUD" unique_id=65727884]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ControlsPanel" unique_id=1014369020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="HUD/ControlsPanel/VBoxContainer" unique_id=314185539]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 2
+
+[node name="SpeedContainer" type="HBoxContainer" parent="HUD/ControlsPanel/VBoxContainer" unique_id=4789590]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="HUD/ControlsPanel/VBoxContainer/SpeedContainer" unique_id=672204311]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed: 5.0"
+
+[node name="SpeedSlider" type="HSlider" parent="HUD/ControlsPanel/VBoxContainer/SpeedContainer" unique_id=1044940678]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+step = 0.1
+value = 5.0
+
+[node name="JumpContainer" type="HBoxContainer" parent="HUD/ControlsPanel/VBoxContainer" unique_id=1612951884]
+layout_mode = 2
+
+[node name="JumpLabel" type="Label" parent="HUD/ControlsPanel/VBoxContainer/JumpContainer" unique_id=1256018053]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jump: 4.5"
+
+[node name="JumpSlider" type="HSlider" parent="HUD/ControlsPanel/VBoxContainer/JumpContainer" unique_id=242223030]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+step = 0.1
+value = 4.5
+
+[node name="SensitivityContainer" type="HBoxContainer" parent="HUD/ControlsPanel/VBoxContainer" unique_id=1296737725]
+layout_mode = 2
+
+[node name="SensitivityLabel" type="Label" parent="HUD/ControlsPanel/VBoxContainer/SensitivityContainer" unique_id=385555749]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sensitivity: 0.0030"
+
+[node name="SensitivitySlider" type="HSlider" parent="HUD/ControlsPanel/VBoxContainer/SensitivityContainer" unique_id=533675226]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 0.01
+step = 0.0001
+value = 0.003
+
+[node name="BulletCollisionEffect" type="GPUParticles3D" parent="." unique_id=188838533]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -1.7659132, 1.1932199, -6.113561)
+material_override = SubResource("StandardMaterial3D_6ppju")
+emitting = false
+amount = 30
+speed_scale = 0.7
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_hslgj")
+draw_pass_1 = SubResource("SphereMesh_7045e")
+
+[connection signal="value_changed" from="HUD/ControlsPanel/VBoxContainer/SpeedContainer/SpeedSlider" to="HUD" method="_on_speed_slider_value_changed"]
+[connection signal="value_changed" from="HUD/ControlsPanel/VBoxContainer/JumpContainer/JumpSlider" to="HUD" method="_on_jump_slider_value_changed"]
+[connection signal="value_changed" from="HUD/ControlsPanel/VBoxContainer/SensitivityContainer/SensitivitySlider" to="HUD" method="_on_sensitivity_slider_value_changed"]

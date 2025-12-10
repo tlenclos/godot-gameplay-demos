@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://qev5rtyo6hr4"]
+
+[ext_resource type="PackedScene" uid="uid://4a6yfs43aao5" path="res://common/floor.tscn" id="1_q3g55"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3g55"]
+
+[sub_resource type="Sky" id="Sky_ddpug"]
+sky_material = SubResource("ProceduralSkyMaterial_q3g55")
+
+[sub_resource type="Environment" id="Environment_kigmy"]
+background_mode = 2
+sky = SubResource("Sky_ddpug")
+tonemap_mode = 2
+tonemap_white = 6.0
+fog_enabled = true
+fog_sky_affect = 0.022
+
+[node name="World" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_q3g55")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
+light_energy = 1.4
+light_angular_distance = 15.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kigmy")
