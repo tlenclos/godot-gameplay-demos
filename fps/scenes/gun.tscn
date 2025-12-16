@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://d26i5i51aic56"]
+
+[ext_resource type="Script" uid="uid://bvmyv8fmd20go" path="res://fps/scenes/gun.gd" id="1_hy2gf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqwbl"]
+size = Vector3(0.02, 0.02, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oht2h"]
+albedo_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er6c3"]
+albedo_color = Color(0.3584417, 0.025841467, 0.08190528, 1)
+
+[sub_resource type="Animation" id="Animation_hy2gf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7qkj"]
+resource_name = "shoot"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15209213, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.13962634, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ra0e"]
+_data = {
+&"RESET": SubResource("Animation_hy2gf"),
+&"shoot": SubResource("Animation_s7qkj")
+}
+
+[node name="Gun" type="Node3D" unique_id=183347541]
+transform = Transform3D(1.2905906, 0, 0, 0, 1.0909237, 0, 0, 0, 1.3591076, 0, 0, 0)
+script = ExtResource("1_hy2gf")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1330859082]
+mesh = SubResource("BoxMesh_qqwbl")
+material = SubResource("StandardMaterial3D_oht2h")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="." unique_id=1021125728]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.51440626, 0, -1, -2.2485413e-08, 0, -0.08319187, 0.13996047)
+mesh = SubResource("BoxMesh_qqwbl")
+material = SubResource("StandardMaterial3D_oht2h")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="." unique_id=2040854300]
+transform = Transform3D(1, 0, 0, 0, -1, -4.0329212e-08, 0, 8.742278e-08, -0.4613124, 0, -0.01787293, 0.06298506)
+mesh = SubResource("BoxMesh_qqwbl")
+material = SubResource("StandardMaterial3D_oht2h")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="." unique_id=419988342]
+transform = Transform3D(1, 0, 0, 0, 8.677012e-08, -0.16631812, 0, 0.6616897, 2.1809987e-08, -0.0014148653, -0.049056053, 0.09847033)
+mesh = SubResource("BoxMesh_qqwbl")
+material = SubResource("StandardMaterial3D_er6c3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=820407938]
+libraries/ = SubResource("AnimationLibrary_0ra0e")

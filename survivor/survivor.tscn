@@ -1,15 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvp86emoccefl"]
+[gd_scene load_steps=5 format=3 uid="uid://dvp86emoccefl"]
 
 [ext_resource type="PackedScene" uid="uid://dkouem2ga3ut5" path="res://survivor/scenes/player.tscn" id="1_m2s1c"]
-[ext_resource type="PackedScene" uid="uid://4a6yfs43aao5" path="res://common/floor.tscn" id="1_wdrh6"]
+[ext_resource type="PackedScene" uid="uid://qev5rtyo6hr4" path="res://common/world.tscn" id="1_wdrh6"]
 [ext_resource type="Script" uid="uid://16dvda5t0foi" path="res://survivor/scripts/camera.gd" id="2_camera"]
 [ext_resource type="PackedScene" uid="uid://kl2foth53dt3" path="res://survivor/scenes/ennemy.tscn" id="3_m2s1c"]
 
-[sub_resource type="Environment" id="Environment_w3rlg"]
-
 [node name="Roguelike" type="Node3D"]
 
-[node name="Floor" parent="." instance=ExtResource("1_wdrh6")]
+[node name="World" parent="." instance=ExtResource("1_wdrh6")]
 
 [node name="Player" parent="." instance=ExtResource("1_m2s1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -18,18 +16,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 8, 8)
 fov = 60.0
 script = ExtResource("2_camera")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 10, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_w3rlg")
-
-[node name="AmbientLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, -1, 0, -5, 0)
-light_color = Color(0.6, 0.65, 0.8, 1)
-light_energy = 0.3
 
 [node name="Ennemy" parent="." instance=ExtResource("3_m2s1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.198138, 1.899898e-07, 6.806959)
