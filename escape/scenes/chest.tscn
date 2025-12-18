@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cckwkmdrptpip"]
+
+[ext_resource type="PackedScene" uid="uid://cgnc31inb4eq" path="res://escape/models/chest.glb" id="1_ihuqm"]
+[ext_resource type="Script" uid="uid://cmoifsanpytip" path="res://escape/scripts/chest.gd" id="2_chest"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ihuqm"]
+points = PackedVector3Array(-0.6375, 0, -0.6375, -0.6375, 0, 0.6373753, -0.6375, 0.51, -0.6375, 0.6373753, 0, -0.6375, -0.6375, 0.51, 0.6373753, 0.6373753, 0, 0.6373753, 0.6373753, 0.51, -0.6375, 0.6373753, 0.51, 0.6373753)
+
+[node name="chest" unique_id=477174281 instance=ExtResource("1_ihuqm")]
+
+[node name="lid" parent="chest" parent_id_path=PackedInt32Array(1405847249) index="0" unique_id=331593875]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -9.498978e-09, 0.51, -0.51)
+
+[node name="Chest" type="StaticBody3D" parent="chest" parent_id_path=PackedInt32Array(1405847249) index="1" unique_id=1567127408 groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8160752, 1.4199567)
+collision_layer = 3
+script = ExtResource("2_chest")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chest/Chest" index="0" unique_id=1779844146]
+transform = Transform3D(0.97, 0, 0, 0, 2.122, 0, 0, 0, 1.17, 0, -0.7909443, -1.4199567)
+shape = SubResource("ConvexPolygonShape3D_ihuqm")

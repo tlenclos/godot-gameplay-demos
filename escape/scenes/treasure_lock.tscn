@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://dgyd5m0608tki"]
+
+[ext_resource type="Script" uid="uid://b7p5m4yxv2ogx" path="res://escape/scripts/treasure_lock.gd" id="1_lock"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_digit"]
+bg_color = Color(0.08, 0.08, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.6, 0.5, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unlock"]
+bg_color = Color(0.15, 0.45, 0.35, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.7, 0.55, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TreasureLock" type="Control" unique_id=2052852237]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lock")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=39202811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=476253266]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=956983760]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1534721672]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="DigitsContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=1639779444]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Digit1" type="VBoxContainer" parent="Panel/MarginContainer/VBox/DigitsContainer" unique_id=581157035]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Up" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit1" unique_id=793615673]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▲"
+
+[node name="Display" type="PanelContainer" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit1" unique_id=137444719]
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_digit")
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit1/Display" unique_id=1261164923]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit1" unique_id=1182740314]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▼"
+
+[node name="Digit2" type="VBoxContainer" parent="Panel/MarginContainer/VBox/DigitsContainer" unique_id=484141487]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Up" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit2" unique_id=297869029]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▲"
+
+[node name="Display" type="PanelContainer" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit2" unique_id=2048897545]
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_digit")
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit2/Display" unique_id=827987826]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit2" unique_id=396618811]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▼"
+
+[node name="Digit3" type="VBoxContainer" parent="Panel/MarginContainer/VBox/DigitsContainer" unique_id=1205355806]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Up" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit3" unique_id=1691633162]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▲"
+
+[node name="Display" type="PanelContainer" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit3" unique_id=1076492971]
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_digit")
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit3/Display" unique_id=2004474087]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit3" unique_id=516834511]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▼"
+
+[node name="Digit4" type="VBoxContainer" parent="Panel/MarginContainer/VBox/DigitsContainer" unique_id=521190950]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Up" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit4" unique_id=97563710]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▲"
+
+[node name="Display" type="PanelContainer" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit4" unique_id=1191257986]
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_digit")
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit4/Display" unique_id=923947325]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="Panel/MarginContainer/VBox/DigitsContainer/Digit4" unique_id=948630571]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+text = "▼"
+
+[node name="UnlockBtn" type="Button" parent="Panel/MarginContainer/VBox" unique_id=1550304703]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 0.92, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_unlock")
+text = "UNLOCK"

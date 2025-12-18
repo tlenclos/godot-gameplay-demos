@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c8svwd8m650w1"]
+
+[ext_resource type="PackedScene" uid="uid://rdjv0pvbte1u" path="res://escape/models/bottle.glb" id="1_uopku"]
+[ext_resource type="Script" uid="uid://dcecaxm32yo3m" path="res://escape/scripts/bottle.gd" id="2_ftfqw"]
+
+[node name="bottle" unique_id=420060274 instance=ExtResource("1_uopku")]
+script = ExtResource("2_ftfqw")
+
+[node name="Label3D" type="Label3D" parent="." index="1" unique_id=1184841120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004186675, 0.29083472, 0.18347552)
+text = "1"
+outline_size = 7

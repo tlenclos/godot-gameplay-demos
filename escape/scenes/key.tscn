@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ymkoq0hd0gnf"]
+
+[ext_resource type="PackedScene" uid="uid://ciou1p83s5t1v" path="res://escape/models/key.glb" id="1_r8hbb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8hbb"]
+size = Vector3(0.4017334, 0.22452927, 0.30517578)
+
+[node name="key2" unique_id=1197182272 instance=ExtResource("1_r8hbb")]
+
+[node name="Key" type="StaticBody3D" parent="key" parent_id_path=PackedInt32Array(1973859869) index="0" unique_id=1415715612 groups=["interactable"]]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key/Key" index="0" unique_id=1883062642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016811714, 0.11544359, 0.02028495)
+shape = SubResource("BoxShape3D_r8hbb")
