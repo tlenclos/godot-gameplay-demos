@@ -2,34 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://qev5rtyo6hr4" path="res://common/world.tscn" id="1_857sn"]
 [ext_resource type="Script" uid="uid://lad43sfdyska" path="res://escape/scripts/escape.gd" id="1_l5tvm"]
-[ext_resource type="Script" uid="uid://du6h8820hhbi5" path="res://escape/scripts/player.gd" id="1_wecxr"]
+[ext_resource type="PackedScene" uid="uid://rn8oex4313uy" path="res://common/player.tscn" id="2_e5ful"]
 [ext_resource type="PackedScene" uid="uid://cckwkmdrptpip" path="res://escape/scenes/chest.tscn" id="4_5bhnv"]
 [ext_resource type="PackedScene" uid="uid://c8svwd8m650w1" path="res://escape/scenes/bottle.tscn" id="6_e5ful"]
 [ext_resource type="PackedScene" uid="uid://b52syu2mt6huu" path="res://escape/scenes/door.tscn" id="7_6maos"]
 [ext_resource type="PackedScene" uid="uid://ymkoq0hd0gnf" path="res://escape/scenes/key.tscn" id="7_e5ful"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wecxr"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l5tvm"]
-radius = 0.30078125
-
 [node name="Escape" type="Node3D" unique_id=1779400878]
 script = ExtResource("1_l5tvm")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=2124285059]
+[node name="Player" parent="." unique_id=273675149 instance=ExtResource("2_e5ful")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0651408, 0)
-script = ExtResource("1_wecxr")
-
-[node name="Head" type="Node3D" parent="Player" unique_id=1687554773]
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=1331948195]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55039775, -0.13057768)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1516748900]
-mesh = SubResource("CapsuleMesh_wecxr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1514810544]
-shape = SubResource("CapsuleShape3D_l5tvm")
 
 [node name="World" parent="." unique_id=1037919133 instance=ExtResource("1_857sn")]
 

@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 folder_colors={
 "res://escape/": "yellow",
+"res://farming/": "green",
 "res://fps/": "blue",
 "res://race/": "purple",
 "res://survivor/": "pink"

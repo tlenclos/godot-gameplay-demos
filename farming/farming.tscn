@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dtmxt1ys35lse"]
+
+[ext_resource type="PackedScene" uid="uid://rn8oex4313uy" path="res://common/player.tscn" id="1_8jmwe"]
+[ext_resource type="PackedScene" uid="uid://qev5rtyo6hr4" path="res://common/world.tscn" id="1_d38oj"]
+[ext_resource type="PackedScene" uid="uid://bp310dqc7vcfu" path="res://farming/models/tree.glb" id="3_pt5il"]
+[ext_resource type="PackedScene" uid="uid://di6eidywt4tbp" path="res://farming/models/patch-grass-large.glb" id="4_ixh8b"]
+[ext_resource type="PackedScene" uid="uid://d1pqqtyedgvqn" path="res://farming/models/tool-axe.glb" id="4_nmsho"]
+[ext_resource type="PackedScene" uid="uid://bn8wm1cye8cb3" path="res://farming/models/resource-stone-large.glb" id="5_cpynn"]
+[ext_resource type="PackedScene" uid="uid://bjc68eodstg7c" path="res://farming/models/resource-wood.glb" id="6_ybysq"]
+[ext_resource type="PackedScene" uid="uid://b8viiyjiqbjqh" path="res://farming/models/tree-autumn-tall.glb" id="7_ixh8b"]
+[ext_resource type="PackedScene" uid="uid://bgdah2bspw6no" path="res://farming/models/workbench.glb" id="8_vipul"]
+[ext_resource type="PackedScene" uid="uid://y160untwnbl7" path="res://farming/models/campfire-pit.glb" id="9_yv7xj"]
+[ext_resource type="PackedScene" uid="uid://7o5qim2tmvsk" path="res://farming/models/bucket.glb" id="10_ybysq"]
+
+[node name="Farming" type="Node3D" unique_id=1791438749]
+
+[node name="Player" parent="." unique_id=273675149 instance=ExtResource("1_8jmwe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+
+[node name="campfire-pit2" parent="." unique_id=1779364872 instance=ExtResource("9_yv7xj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.121995, -4.8428774e-08, -4.673626)
+
+[node name="bucket2" parent="." unique_id=1307340773 instance=ExtResource("10_ybysq")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.7445526, -4.8428774e-08, 1.3216522)
+
+[node name="patch-grass-large2" parent="." unique_id=367082816 instance=ExtResource("4_ixh8b")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 2.9092205, -4.8428774e-08, -3.7720313)
+
+[node name="tree-autumn-tall2" parent="." unique_id=2106131301 instance=ExtResource("7_ixh8b")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 8.679509, -4.8428774e-08, -1.8488984)
+
+[node name="workbench2" parent="." unique_id=1985651255 instance=ExtResource("8_vipul")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.1839604, 0.09999995, 1.6917095)
+
+[node name="resource-wood2" parent="." unique_id=677112938 instance=ExtResource("6_ybysq")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.4293783, -4.4703484e-08, -3.3757114)
+
+[node name="resource-stone-large2" parent="." unique_id=1855576167 instance=ExtResource("5_cpynn")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.0739295, 0.1916298, -2.1112266)
+
+[node name="tool-axe2" parent="." unique_id=338916320 instance=ExtResource("4_nmsho")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.4503574, -4.8428774e-08, 1.6102777)
+
+[node name="tree2" parent="." unique_id=621302586 instance=ExtResource("3_pt5il")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 8.053777, -4.8428774e-08, -3.887757)
+
+[node name="World" parent="." unique_id=579114558 instance=ExtResource("1_d38oj")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=782428426]
+
+[node name="CrossHair" type="Control" parent="HUD" unique_id=583222871]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0028204443
+
+[node name="Line2D" type="Line2D" parent="HUD/CrossHair" unique_id=1495924297]
+position = Vector2(18.964027, 10.054565)
+rotation = 0.0026141638
+points = PackedVector2Array(0, 0, 0, 20)
+width = 5.0
+default_color = Color(0, 0, 0, 0.49019608)
+
+[node name="Line2D2" type="Line2D" parent="HUD/CrossHair" unique_id=1803983089]
+position = Vector2(28.964025, 20.054565)
+rotation = 1.5777453
+points = PackedVector2Array(0, 0, 0, 20)
+width = 5.0
+default_color = Color(0, 0, 0, 0.49019608)
+
+[node name="TargetName" type="Label" parent="HUD" unique_id=205070884]
+offset_right = 40.0
+offset_bottom = 23.0

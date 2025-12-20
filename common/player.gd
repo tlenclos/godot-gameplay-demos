@@ -1,3 +1,4 @@
+# This is a common player scene with movement, jump, interaction and inventory behavior
 extends CharacterBody3D
 
 signal interacted(target: Node)

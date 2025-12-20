@@ -32,6 +32,9 @@ func _on_fps_pressed() -> void:
 func _on_escape_pressed() -> void:
 	_load_scene(preload("res://escape/escape.tscn"))
 
+func _on_farming_pressed() -> void:
+	_load_scene(preload("res://farming/farming.tscn"))
+
 func _on_game_ended() -> void:
 	# Close the game scene and return to home menu
 	if current_game_scene:

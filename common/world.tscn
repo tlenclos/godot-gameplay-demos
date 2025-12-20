@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qev5rtyo6hr4"]
 
 [ext_resource type="PackedScene" uid="uid://4a6yfs43aao5" path="res://common/floor.tscn" id="1_q3g55"]
+[ext_resource type="PackedScene" uid="uid://b8viiyjiqbjqh" path="res://farming/models/tree-autumn-tall.glb" id="2_kigmy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3g55"]
 
@@ -22,9 +23,16 @@ fog_sky_affect = 0.022
 [node name="Floor" parent="." unique_id=1013659902 instance=ExtResource("1_q3g55")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=201068480]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
-light_energy = 1.4
-light_angular_distance = 15.0
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 10, -3)
+light_color = Color(1, 1, 0.9098039, 1)
+light_energy = 0.3
+light_angular_distance = 8.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.29
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=281744264]
 environment = SubResource("Environment_kigmy")
+
+[node name="tree-autumn-tall2" parent="." unique_id=2106131301 instance=ExtResource("2_kigmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9862981, 1.899898e-07, 0.043576717)

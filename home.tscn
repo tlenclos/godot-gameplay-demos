@@ -148,4 +148,5 @@ text = "Hack&Slash
 [connection signal="pressed" from="FlowContainer/Race" to="." method="_on_race_pressed"]
 [connection signal="pressed" from="FlowContainer/Survivor" to="." method="_on_rogue_like_pressed"]
 [connection signal="pressed" from="FlowContainer/FPS" to="." method="_on_fps_pressed"]
+[connection signal="pressed" from="FlowContainer/Farming" to="." method="_on_farming_pressed"]
 [connection signal="pressed" from="FlowContainer/Escape" to="." method="_on_escape_pressed"]
