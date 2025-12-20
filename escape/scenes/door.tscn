@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b52syu2mt6huu"]
+
+[ext_resource type="PackedScene" uid="uid://dylua7wpmqkuk" path="res://escape/models/doorwayFront.glb" id="1_c22dh"]
+[ext_resource type="Script" uid="uid://bhln5mwv1kddj" path="res://escape/scripts/door.gd" id="2_nju34"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nju34"]
+points = PackedVector3Array(0.39710513, 0.506016, 0.06010952, -0.007787302, -0.0077872872, -0.0333259, -0.007787302, -0.0077872872, 0.028960314, -0.007787302, 0.98898727, -0.0333259, 0.44383198, -0.0077872872, -0.0333259, 0.44383198, 0.98898727, -0.0333259, -0.007787302, 0.98898727, 0.028960314, 0.30365142, 0.47508636, -0.0644873, 0.44383198, -0.0077872872, 0.028960314, 0.44383198, 0.98898727, 0.028960314, 0.39710513, 0.506016, -0.0644873, 0.30365142, 0.47508636, 0.06010952, 0.30365142, 0.506016, -0.0644873, 0.30365142, 0.506016, 0.06010952)
+
+[sub_resource type="Animation" id="Animation_c22dh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("doorwayFront(Clone)/door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nju34"]
+resource_name = "open"
+length = 1.1666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("doorwayFront(Clone)/door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.2217305, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8s4j"]
+_data = {
+&"RESET": SubResource("Animation_c22dh"),
+&"open": SubResource("Animation_nju34")
+}
+
+[node name="doorwayFront" unique_id=870947403 instance=ExtResource("1_c22dh")]
+
+[node name="door" type="StaticBody3D" parent="doorwayFront(Clone)/door" parent_id_path=PackedInt32Array(841847348) index="0" unique_id=1481409726 groups=["interactable"]]
+collision_layer = 3
+script = ExtResource("2_nju34")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorwayFront(Clone)/door/door" index="0" unique_id=1862837534]
+shape = SubResource("ConvexPolygonShape3D_nju34")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1779078717]
+libraries/ = SubResource("AnimationLibrary_x8s4j")

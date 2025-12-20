@@ -13,16 +13,18 @@ sky = SubResource("Sky_ddpug")
 tonemap_mode = 2
 tonemap_white = 6.0
 fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
 fog_sky_affect = 0.022
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=579114558]
 
-[node name="Floor" parent="." instance=ExtResource("1_q3g55")]
+[node name="Floor" parent="." unique_id=1013659902 instance=ExtResource("1_q3g55")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=201068480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -3)
 light_energy = 1.4
 light_angular_distance = 15.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=281744264]
 environment = SubResource("Environment_kigmy")

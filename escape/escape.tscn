@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://bh7uadxqr2bbm"]
+
+[ext_resource type="PackedScene" uid="uid://qev5rtyo6hr4" path="res://common/world.tscn" id="1_857sn"]
+[ext_resource type="Script" uid="uid://lad43sfdyska" path="res://escape/scripts/escape.gd" id="1_l5tvm"]
+[ext_resource type="Script" uid="uid://du6h8820hhbi5" path="res://escape/scripts/player.gd" id="1_wecxr"]
+[ext_resource type="PackedScene" uid="uid://cckwkmdrptpip" path="res://escape/scenes/chest.tscn" id="4_5bhnv"]
+[ext_resource type="PackedScene" uid="uid://c8svwd8m650w1" path="res://escape/scenes/bottle.tscn" id="6_e5ful"]
+[ext_resource type="PackedScene" uid="uid://b52syu2mt6huu" path="res://escape/scenes/door.tscn" id="7_6maos"]
+[ext_resource type="PackedScene" uid="uid://ymkoq0hd0gnf" path="res://escape/scenes/key.tscn" id="7_e5ful"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wecxr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l5tvm"]
+radius = 0.30078125
+
+[node name="Escape" type="Node3D" unique_id=1779400878]
+script = ExtResource("1_l5tvm")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=2124285059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0651408, 0)
+script = ExtResource("1_wecxr")
+
+[node name="Head" type="Node3D" parent="Player" unique_id=1687554773]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=1331948195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55039775, -0.13057768)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1516748900]
+mesh = SubResource("CapsuleMesh_wecxr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1514810544]
+shape = SubResource("CapsuleShape3D_l5tvm")
+
+[node name="World" parent="." unique_id=1037919133 instance=ExtResource("1_857sn")]
+
+[node name="Room" type="Node3D" parent="." unique_id=1967742694]
+
+[node name="chest" parent="Room" unique_id=477174281 instance=ExtResource("4_5bhnv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34235287, 0.0067741387, -4.2868233)
+
+[node name="key" parent="Room" unique_id=1197182272 instance=ExtResource("7_e5ful")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.34954047, 0.31004992, -4.22258)
+
+[node name="door" parent="Room" unique_id=870947403 instance=ExtResource("7_6maos")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0.8320634, 0, 4.922467)
+
+[node name="Walls" type="CSGBox3D" parent="Room" unique_id=905514354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181427, 2.4104204, 0.0066061914)
+use_collision = true
+flip_faces = true
+size = Vector3(10, 5, 10)
+
+[node name="doorSlot" type="CSGBox3D" parent="Room/Walls" unique_id=740138075]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0.10110071, -1.6959741, 5.241497)
+layers = 4
+operation = 2
+calculate_tangents = false
+size = Vector3(0.44013977, 1.4910889, 0.21575928)
+
+[node name="bottles" type="Node3D" parent="Room" unique_id=65824977]
+
+[node name="BOTTLEOK4" parent="Room/bottles" unique_id=1594430263 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.79943, 0, -4.4242125)
+label_color = Color(0.14901961, 0.4509804, 0.34901962, 1)
+
+[node name="bottle3" parent="Room/bottles" unique_id=1157866572 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 4.7994294, 0, -3.6242132)
+label_text = "7"
+label_color = Color(0.105560504, 0.5849048, 0.9185194, 1)
+
+[node name="BOTTLEOK3" parent="Room/bottles" unique_id=420060274 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 4.79943, 0, -2.9242127)
+label_text = "9"
+label_color = Color(0.14901961, 0.4509804, 0.34901962, 1)
+
+[node name="bottle5" parent="Room/bottles" unique_id=675851925 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-4.8082526e-08, 0, -1.1, 0, 1.1, 0, 1.1, 0, -4.8082526e-08, 4.7994294, 0, -2.124213)
+label_text = "3"
+label_color = Color(0.8392157, 0.5019608, 0.95686275, 1)
+
+[node name="bottle6" parent="Room/bottles" unique_id=822197746 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 4.79943, 0, -1.3242126)
+label_text = "8"
+label_color = Color(0.105882354, 0.58431375, 0.91764706, 1)
+
+[node name="BOTTLEOK2" parent="Room/bottles" unique_id=876799957 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-5.6824803e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.6824803e-08, 4.7994294, 0, -0.524213)
+label_text = "9"
+label_color = Color(0.14901961, 0.4509804, 0.34901962, 1)
+
+[node name="bottle8" parent="Room/bottles" unique_id=1118951141 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 4.79943, 0, 0.17578751)
+label_text = "3"
+label_color = Color(0.105882354, 0.58431375, 0.91764706, 1)
+
+[node name="bottle9" parent="Room/bottles" unique_id=1200855599 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-4.8082526e-08, 0, -1.1, 0, 1.1, 0, 1.1, 0, -4.8082526e-08, 4.7994294, 0, 0.9757872)
+label_text = "9"
+label_color = Color(0.105882354, 0.58431375, 0.91764706, 1)
+
+[node name="BOTTLEOK1" parent="Room/bottles" unique_id=918780379 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 4.79943, 0, 1.7757876)
+label_color = Color(0.14901961, 0.4509804, 0.34901962, 1)
+
+[node name="bottle11" parent="Room/bottles" unique_id=1271918521 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.7994294, 0, 2.575787)
+label_text = "2"
+label_color = Color(0.8391846, 0.50184613, 0.95747226, 1)
+
+[node name="bottle12" parent="Room/bottles" unique_id=728734306 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-6.119594e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.119594e-08, 4.79943, 0, 3.2757876)
+label_text = "6"
+label_color = Color(0.105882354, 0.58431375, 0.91764706, 1)
+
+[node name="bottle13" parent="Room/bottles" unique_id=1154247419 instance=ExtResource("6_e5ful")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 4.7994294, 0, 4.0757875)
+label_color = Color(0.8392157, 0.5019608, 0.95686275, 1)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=405881166]
+
+[node name="CrossHair" type="Control" parent="HUD" unique_id=1013813111]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0028204443
+
+[node name="Line2D" type="Line2D" parent="HUD/CrossHair" unique_id=1710451554]
+position = Vector2(18.964027, 10.054565)
+rotation = 0.0026141638
+points = PackedVector2Array(0, 0, 0, 20)
+width = 5.0
+default_color = Color(0, 0, 0, 0.49019608)
+
+[node name="Line2D2" type="Line2D" parent="HUD/CrossHair" unique_id=695440400]
+position = Vector2(28.964025, 20.054565)
+rotation = 1.5777453
+points = PackedVector2Array(0, 0, 0, 20)
+width = 5.0
+default_color = Color(0, 0, 0, 0.49019608)
+
+[node name="TargetName" type="Label" parent="HUD" unique_id=617961432]
+offset_right = 40.0
+offset_bottom = 23.0
