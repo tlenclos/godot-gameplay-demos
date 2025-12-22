@@ -1,14 +1,13 @@
-#!/bin/bash
-set -e
+#!/usr/bin/bash
 
-BUTLER_VERSION="15.21.0"
-BUTLER_URL="https://broth.itch.ovh/butler/linux-amd64/${BUTLER_VERSION}/archive/default"
+mkdir -p /opt/butler/bin 
+cd /opt/butler/bin
 
-mkdir -p /opt/butler/bin
-cd /opt/butler
-wget -q -O butler.zip "${BUTLER_URL}"
-unzip -q butler.zip
+wget -O butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+unzip butler.zip
+
+# GNU unzip tends to not set the executable bit even though it's set in the .zip
 chmod +x butler
-mv butler /opt/butler/bin/butler
-rm -f butler.zip
 
+export PATH=/opt/butler/bin/:$PATH
+cd ~
