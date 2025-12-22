@@ -138,11 +138,11 @@ theme = ExtResource("2_2ayvv")
 text = "RPG
 (planned)"
 
-[node name="Hack&Slash" type="Button" parent="FlowContainer" unique_id=835828352]
+[node name="Deckbuilder" type="Button" parent="FlowContainer" unique_id=835828352]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme = ExtResource("2_2ayvv")
-text = "Hack&Slash
+text = "Deckbuilder
 (planned)"
 
 [connection signal="pressed" from="FlowContainer/Race" to="." method="_on_race_pressed"]

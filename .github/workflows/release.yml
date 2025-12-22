@@ -15,23 +15,38 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:4.5.1
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up export templates
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .github/docker
+          push: false
+          load: true
+          tags: godot-ci:4.6-beta2
+          build-args: |
+            GODOT_VERSION=4.6
+            RELEASE_NAME=beta2
+            SUBDIR=/beta2
+
+      - name: Run build in container
         run: |
-          mkdir -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME} ~/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME}
-
-      - name: Create exports directory
-        run: mkdir -p exports/web
-
-      - name: Export for Web
-        run: godot --headless --path . --export-release "Web" "exports/web/index.html"
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            -w /workspace \
+            godot-ci:4.6-beta2 \
+            bash -c "
+              mkdir -p ~/.local/share/godot/export_templates
+              cp -r /root/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME} ~/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME} || true
+              mkdir -p exports/web
+              godot --headless --path . --export-release 'Web' 'exports/web/index.html'
+            "
 
       - name: Upload Web artifact
         uses: actions/upload-artifact@v4
