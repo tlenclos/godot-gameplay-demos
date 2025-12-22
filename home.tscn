@@ -149,3 +149,4 @@ text = "Deckbuilder
 [connection signal="pressed" from="FlowContainer/Survivor" to="." method="_on_rogue_like_pressed"]
 [connection signal="pressed" from="FlowContainer/FPS" to="." method="_on_fps_pressed"]
 [connection signal="pressed" from="FlowContainer/Escape" to="." method="_on_escape_pressed"]
+[connection signal="pressed" from="FlowContainer/Deckbuilder" to="." method="_on_deckbuilder_pressed"]

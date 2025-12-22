@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhup12472e3dm"]
+
+[ext_resource type="Script" uid="uid://dn25speuu5ubs" path="res://deckbuiler/deckbuilder.gd" id="1_ewedu"]
+[ext_resource type="PackedScene" uid="uid://c334bf121mucv" path="res://deckbuiler/scenes/card.tscn" id="2_mbd3k"]
+
+[node name="Deckbuilder" type="Node2D" unique_id=566568152]
+script = ExtResource("1_ewedu")
+
+[node name="Card" parent="." unique_id=681801078 instance=ExtResource("2_mbd3k")]
+position = Vector2(100, 118)
+region_rect = Rect2(10.683632, 2.1149807, 42.626514, 60.072815)
+
+[node name="Card2" parent="." unique_id=1932036415 instance=ExtResource("2_mbd3k")]
+position = Vector2(148, 161)
+region_rect = Rect2(75.70392, 132.04445, 42.446686, 59.89299)

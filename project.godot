@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [file_customization]
 
 folder_colors={
+"res://deckbuiler/": "orange",
 "res://escape/": "yellow",
 "res://fps/": "blue",
 "res://race/": "purple",
