@@ -13,16 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.5.1
-    
+    env:
+      GODOT_VERSION: 4.6
+      RELEASE_NAME: beta2
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up export templates
-        run: |
-          GODOT_VERSION="4.5.1"
-          mkdir -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
 
       - name: Create exports directory
         run: mkdir -p exports/web
