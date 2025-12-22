@@ -8,14 +8,15 @@ on:
         required: true
         type: string
 
+env:
+  GODOT_VERSION: 4.6
+  RELEASE_NAME: beta2
+
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.5.1
-    env:
-      GODOT_VERSION: 4.6
-      RELEASE_NAME: beta2
 
     steps:
       - name: Checkout code
