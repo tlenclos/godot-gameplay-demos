@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cam156l3yo42u"]
+
+[ext_resource type="Script" uid="uid://dhm2ahrbfio7f" path="res://deckbuiler/scenes/card_slot.gd" id="1_hqsaj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(1, 1, 1, 0.05)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.8)
+
+[node name="CardSlot" type="Control" unique_id=1376649520]
+layout_mode = 3
+anchors_preset = 0
+custom_minimum_size = Vector2(200, 280)
+script = ExtResource("1_hqsaj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
