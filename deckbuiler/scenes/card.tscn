@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://c334bf121mucv"]
 
 [ext_resource type="Texture2D" uid="uid://dtjuuspg5qfmf" path="res://deckbuiler/assets/cardsLarge_tilemap.png" id="1_tqgk7"]
+[ext_resource type="Script" uid="uid://bhjnnioplcont" path="res://deckbuiler/scenes/card.gd" id="2_ie8ng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pk8hw"]
-size = Vector2(43, 59)
+size = Vector2(43, 60)
 
 [node name="Card" type="Sprite2D" unique_id=681801078 groups=["cards"]]
 scale = Vector2(3, 3)
 texture = ExtResource("1_tqgk7")
 region_enabled = true
 region_rect = Rect2(75.92763, 132.44861, 42.00241, 59.41275)
+script = ExtResource("2_ie8ng")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=899719190]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=899719188]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_pk8hw")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

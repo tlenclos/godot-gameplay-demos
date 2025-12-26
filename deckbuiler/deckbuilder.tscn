@@ -2,14 +2,46 @@
 
 [ext_resource type="Script" uid="uid://dn25speuu5ubs" path="res://deckbuiler/deckbuilder.gd" id="1_ewedu"]
 [ext_resource type="PackedScene" uid="uid://c334bf121mucv" path="res://deckbuiler/scenes/card.tscn" id="2_mbd3k"]
+[ext_resource type="PackedScene" uid="uid://cam156l3yo42u" path="res://deckbuiler/scenes/card_slot.tscn" id="2_xoskt"]
 
 [node name="Deckbuilder" type="Node2D" unique_id=566568152]
 script = ExtResource("1_ewedu")
 
+[node name="CardSlot" parent="." unique_id=1376649520 groups=["cardSlots"] instance=ExtResource("2_xoskt")]
+offset_left = 414.0
+offset_top = 28.0
+offset_right = 614.0
+offset_bottom = 308.0
+pivot_offset = Vector2(23, 119)
+
+[node name="CardSlot2" parent="." unique_id=1637148349 groups=["cardSlots"] instance=ExtResource("2_xoskt")]
+offset_left = 709.0
+offset_top = 28.0
+offset_right = 909.0
+offset_bottom = 308.0
+pivot_offset = Vector2(-272, 119)
+
 [node name="Card" parent="." unique_id=681801078 instance=ExtResource("2_mbd3k")]
-position = Vector2(100, 118)
+position = Vector2(321, 546)
+scale = Vector2(4, 4)
 region_rect = Rect2(10.683632, 2.1149807, 42.626514, 60.072815)
 
 [node name="Card2" parent="." unique_id=1932036415 instance=ExtResource("2_mbd3k")]
-position = Vector2(148, 161)
+position = Vector2(424, 568)
+scale = Vector2(4, 4)
 region_rect = Rect2(75.70392, 132.04445, 42.446686, 59.89299)
+
+[node name="Card3" parent="." unique_id=14303169 instance=ExtResource("2_mbd3k")]
+position = Vector2(524, 584)
+scale = Vector2(4, 4)
+region_rect = Rect2(661.8186, 132.53995, 40.877014, 59.160156)
+
+[node name="Card4" parent="." unique_id=327588656 instance=ExtResource("2_mbd3k")]
+position = Vector2(605, 621)
+scale = Vector2(4, 4)
+region_rect = Rect2(856.4943, 132.7575, 40.952698, 58.78331)
+
+[node name="Card5" parent="." unique_id=1125263924 instance=ExtResource("2_mbd3k")]
+position = Vector2(695, 668)
+scale = Vector2(4, 4)
+region_rect = Rect2(791.0843, 196.84985, 41.89044, 60.010254)
