@@ -68,8 +68,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme = ExtResource("2_2ayvv")
-text = "Race
-(WIP)"
+text = "Race"
 icon = ExtResource("2_1ey7h")
 icon_alignment = 1
 expand_icon = true
@@ -78,8 +77,7 @@ expand_icon = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme = ExtResource("2_2ayvv")
-text = "Survivor 
-(WIP)"
+text = "Survivor "
 icon = ExtResource("3_o1ld7")
 icon_alignment = 1
 expand_icon = true
@@ -88,8 +86,7 @@ expand_icon = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme = ExtResource("2_2ayvv")
-text = "FPS
-(WIP)"
+text = "FPS"
 icon = ExtResource("5_w1mvj")
 icon_alignment = 1
 expand_icon = true
@@ -112,8 +109,7 @@ text = "City builder
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme = ExtResource("2_2ayvv")
-text = "Escape
-(WIP)"
+text = "Escape"
 icon = ExtResource("6_lxycn")
 icon_alignment = 1
 expand_icon = true
@@ -143,8 +139,7 @@ text = "RPG
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme = ExtResource("2_2ayvv")
-text = "Deckbuilder
-(planned)"
+text = "Cards"
 icon = ExtResource("7_vqw7c")
 icon_alignment = 1
 expand_icon = true

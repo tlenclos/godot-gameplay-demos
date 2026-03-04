@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cnwukht078142"]
+
+[ext_resource type="Texture2D" uid="uid://6ahlbn6mngdm" path="res://farming/assets/wolf/wolf-idle.png" id="1_3stel"]
+[ext_resource type="Script" uid="uid://bot7ffitbcyrm" path="res://farming/player.gd" id="1_g45x1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g45x1"]
+radius = 6.0
+height = 12.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1565318637]
+script = ExtResource("1_g45x1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=950328506]
+texture = ExtResource("1_3stel")
+region_enabled = true
+region_rect = Rect2(17.540356, 82.837746, 27.836903, 26.890984)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1146320998]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_g45x1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1403003926]
+zoom = Vector2(3, 3)
